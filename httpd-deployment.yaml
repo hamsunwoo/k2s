@@ -19,11 +19,11 @@ spec:
         - containerPort: 80
         resources:
           requests:
-            cpu: 5m
-            memory: 5Mi
+            cpu: 10m
+            memory: 15Mi
           limits:
-            cpu: 6m
-            memory: 5Mi
+            cpu: 10m
+            memory: 15Mi
 ---
 apiVersion: v1
 kind: Service
@@ -36,4 +36,4 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 80
-  type: ClusterIP
+  type: NodePort
