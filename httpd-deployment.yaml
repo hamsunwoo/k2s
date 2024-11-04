@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: httpd-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: httpd
@@ -16,7 +16,14 @@ spec:
       - name: httpd
         image: httpd
         ports:
-          - containerPort: 80
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 5m
+            memory: 5Mi
+          limits:
+            cpu: 6m
+            memory: 5Mi
 ---
 apiVersion: v1
 kind: Service
